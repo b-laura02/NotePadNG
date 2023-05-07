@@ -1,0 +1,48 @@
+<div id="page">
+  <div class="main_component" *ngIf="user">
+    <h1>Welcome to NotePad  {{ user.name.firstname}} {{ user.name.lastname }}!</h1>
+  </div>
+  <mat-drawer-container class="container">
+    <mat-drawer mode="side" opened class="oldalsav">
+      <h1>Groups:</h1>
+      <mat-list id="lista">
+        <ng-container *ngFor="let group of groups">
+          <mat-list-item class="list-item" (click)="type = group">
+            <mat-icon *ngIf="group.name === 'Hobby'" matListItemIcon>favorite</mat-icon>
+            <mat-icon *ngIf="group.name === 'Shopping'" matListItemIcon>receipt</mat-icon>
+            <mat-icon *ngIf="group.name === 'Household'" matListItemIcon>house</mat-icon>
+            <mat-icon *ngIf="group.name === 'Family'" matListItemIcon>groups</mat-icon>
+            <mat-icon *ngIf="group.name === 'Work'" matListItemIcon>work</mat-icon>
+            <mat-icon *ngIf="group.name !== 'Work' &&
+                             group.name !== 'Hobby' &&
+                             group.name !== 'Shopping' &&
+                             group.name !== 'Family' &&
+                             group.name !== 'Household'" matListItemIcon>star</mat-icon>
+            <a>{{group.name | firstletterToUpperCase}}</a>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+        </ng-container>
+
+        <mat-list-item *ngIf="!isAdd" class="list-item" (click)="isAdd=true">
+          <mat-icon matListItemIcon>add</mat-icon>
+          <a >Add new group</a>
+        </mat-list-item>
+        <mat-divider *ngIf="!isAdd"></mat-divider>
+
+        <mat-list-item *ngIf="isAdd">
+          <mat-icon class="icon-click" (click)="addGroup()" matListItemIcon>add</mat-icon>
+          <mat-form-field>
+            <input matInput type="text" [(ngModel)]="name">
+          </mat-form-field>
+          <mat-icon class="icon-click" (click)="isAdd = false" matListItemIcon>cancel</mat-icon>
+        </mat-list-item>
+        <mat-divider *ngIf="isAdd"></mat-divider>
+
+      </mat-list>
+    </mat-drawer>
+    <mat-drawer-content>
+      <app-gallery *ngIf="type" [type]="type"></app-gallery>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
+

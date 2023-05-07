@@ -1,0 +1,7 @@
+<div class="imageL" *ngIf="notes && notes.length >= 1">
+  <mat-form-field>
+    <mat-select (selectionChange)="reload() " [(ngModel)]="chosenNote">
+      <mat-option *ngFor="let obj of notes" [value]="obj">{{obj.title}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

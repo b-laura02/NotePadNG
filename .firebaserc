@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "notepadangularwebkert"
+  },
+  "targets": {
+    "notepadangularwebkert": {
+      "hosting": {
+        "kotprog": [
+          "notepadng"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

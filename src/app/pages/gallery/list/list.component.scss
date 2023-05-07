@@ -1,0 +1,18 @@
+.container{
+  font-size: 25px;
+  display: flex;
+  align-items:center;
+  justify-content: flex-start;
+  float-wrap: wrap;;
+}
+.galleryImage{
+  width:25%;
+  height: auto;
+}
+.break{
+  flex-basis:10%;
+  height: 2px;
+}
+.imageL{
+  padding: 5px;
+}

@@ -1,0 +1,10 @@
+<app-list [notes]="notes" (imageObjectEmitter)="loadNote($event)"></app-list>
+<app-viewer *ngIf="!loading" [imageInput]="chosenImage" [noteInput]="chosenNote" [group]="type"></app-viewer>
+
+
+
+
+
+
+
+

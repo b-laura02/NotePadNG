@@ -1,0 +1,51 @@
+#page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main_component{
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  background-color: #ffd398;
+}
+#kep{
+  height: auto;
+  width: auto;
+  display: initial;
+}
+h1{
+  padding: 20px;
+  margin: 0;
+}
+a{
+  text-decoration: none;
+  color: #ec8d12;
+}
+
+.oldalsav{
+  width: 350px;
+}
+.container{
+  width: 100%;
+  height: 100%;
+}
+
+.list-item:hover, .list-item:active {
+  cursor: pointer;
+  a {
+    color: #000000;
+  }
+  background-color: rgba(255, 211, 152, 0.34);
+}
+
+.icon-click:hover {
+  cursor: pointer;
+  background-color: rgba(255, 211, 152, 0.34);
+  border-radius: 8px;
+}
+#lista{
+  overflow-y: auto;
+}
+
