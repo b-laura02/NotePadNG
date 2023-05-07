@@ -1,0 +1,20 @@
+mat-card{
+  height: 80%;
+  width: 80%;
+  align-self: center;
+  background-color: #c4b875;
+}
+div{
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 80%;
+}
+mat-card-title{
+  text-align: center;
+}
+mat-card-header{
+  display: initial;
+}

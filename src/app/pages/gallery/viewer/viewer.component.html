@@ -1,0 +1,94 @@
+<div class="div-card">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{group?.name | firstletterToUpperCase}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content id="notecard">
+      <img *ngIf="imageInput" class="galleryImage" [src]="loaderImage"/>
+      <img *ngIf="!imageInput" class="galleryImage" [src]="loaderImage"/>
+      <mat-card *ngIf="noteInput" class="note">
+        <mat-card-header>
+          <mat-card-title id="note-title">
+            <span>{{noteInput.title}}</span>
+            <mat-icon class="icon-click" (click)="deleteNote(noteInput)">delete</mat-icon>
+            <mat-icon class="icon-click" (click)="openEdit()">edit</mat-icon>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          {{noteInput.text}}
+        </mat-card-content>
+        <mat-card-footer>
+          <span style="margin-left: 15px">{{noteInput.date | date: 'yyyy-MM-dd'}}</span>
+        </mat-card-footer>
+      </mat-card>
+      <mat-card *ngIf="!noteInput" class="note">
+        <mat-card-header>
+          <mat-card-title>No notes found!</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          You can add notes below this card.
+        </mat-card-content>
+      </mat-card>
+
+    </mat-card-content>
+  </mat-card>
+  <mat-card style="margin-top: 15px">
+    <mat-card-header>
+      <mat-card-title>Add new Note!</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="noteForm" (ngSubmit)="addNote()">
+        <div>
+          <mat-form-field>
+            <mat-label for="title">Title:</mat-label>
+            <input matInput type="text" formControlName="title"/>
+          </mat-form-field>
+        </div>
+        <div class="break"></div>
+        <div>
+          <mat-form-field>
+            <mat-label for="text">Text:</mat-label>
+            <textarea matInput rows="6" cols="20" formControlName="text"></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="break"></div>
+        <div>
+          <button color="accent" mat-raised-button type="submit" >ADD</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <mat-card style="margin-top: 15px" *ngIf="showEdit">
+    <mat-card-header>
+      <mat-card-title>Edit your Note!</mat-card-title>
+      <mat-icon class="icon-click" (click)="showEdit = false">cancel</mat-icon>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="noteEditForm" (ngSubmit)="editNote()">
+        <div>
+          <mat-form-field>
+            <mat-label for="title">Title:</mat-label>
+            <input matInput type="text" formControlName="title"/>
+          </mat-form-field>
+        </div>
+        <div class="break"></div>
+        <div>
+          <mat-form-field>
+            <mat-label for="text">Text:</mat-label>
+            <textarea matInput rows="6" cols="20" formControlName="text"></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="break"></div>
+        <div>
+          <button color="accent" mat-raised-button type="submit" >ADD</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+

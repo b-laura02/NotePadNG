@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.galleryImage {
+  width: 250px;
+  height: auto;
+  border-radius: 15px;
+  align-self: flex-start;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+.table-header-odd {
+  background-color: #080c0c;
+}
+
+form {
+  width: 100%;
+}
+
+.div-card {
+  padding: 50px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-card-content {
+  text-align: start;
+}
+
+#notecard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note {
+  width: 250px;
+  height: 250px;
+  background-color: #f5e6dc;
+  border-radius: 15px;
+  margin: auto;
+  mat-card-content {
+    height: 100%;
+  }
+}
+
+#note-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-click:hover {
+  cursor: pointer;
+  background-color: rgba(224, 160, 77, 0.78);
+  border-radius: 8px;
+}
