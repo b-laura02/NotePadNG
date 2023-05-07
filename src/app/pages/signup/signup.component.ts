@@ -11,46 +11,49 @@ import {Router} from "@angular/router";
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit{
-  signUpForm=new FormGroup({
+export class SignupComponent implements OnInit {
+  signUpForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
-    rePassword:new FormControl(''),
+    rePassword: new FormControl(''),
     name: new FormGroup({
-      firstname:new FormControl(''),
-      lastname:new FormControl('')
+      firstname: new FormControl(''),
+      lastname: new FormControl('')
     })
   })
 
-constructor(private location: Location, private authService: AuthService, private userService: UserService, private router: Router) {
-}
-ngOnInit() {
+  constructor(private location: Location, private authService: AuthService, private userService: UserService, private router: Router) {
+  }
 
-}
-onSubmit(){
+  ngOnInit() {
+
+  }
+
+  onSubmit() {
     console.log(this.signUpForm.value);
-    this.authService.signup(this.signUpForm.get('email')?.value as string, this.signUpForm.get('password')?.value as string).then(cred =>{
+    this.authService.signup(this.signUpForm.get('email')?.value as string, this.signUpForm.get('password')?.value as string).then(cred => {
       console.log(cred);
-      const user: User={
-        id:cred.user?.uid as string,
+      const user: User = {
+        id: cred.user?.uid as string,
         email: this.signUpForm.get('email')?.value as string,
         username: this.signUpForm.get('email')?.value?.split('@')[0] as string,
-        name:{
+        name: {
           firstname: this.signUpForm.get('name.firstname')?.value as any,
           lastname: this.signUpForm.get('name.lastname')?.value as any
         }
       };
-      this.userService.create(user).then(_ =>{
+      this.userService.create(user).then(_ => {
         console.log('User added successfully! :D');
         this.router.navigateByUrl('/welcome');
-      }).catch(error=>{
+      }).catch(error => {
         console.error(error);
       });
-    }).catch(error=>{
+    }).catch(error => {
       console.error(error);
     });
-}
-goBack(){
+  }
+
+  goBack() {
     this.location.back();
-}
+  }
 }
